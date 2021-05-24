@@ -1,0 +1,7 @@
+[
+	{
+		"path": ".vercel_build_output/static/_app/*.js",
+		"running": false,
+		"limit": "500 ms"
+	}
+]
