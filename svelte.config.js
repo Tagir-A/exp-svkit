@@ -1,6 +1,7 @@
-import preprocess from 'svelte-preprocess';
-import vercel from '@sveltejs/adapter-vercel';
-import { mdsvex } from 'mdsvex';
+import preprocess from 'svelte-preprocess'
+import vercel from '@sveltejs/adapter-vercel'
+import { mdsvex } from 'mdsvex'
+import * as path from 'path'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,8 +13,15 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: vercel()
+		adapter: vercel(),
+		vite: {
+			resolve: {
+				alias: {
+					$src: path.resolve('src/')
+				}
+			}
+		}
 	}
-};
+}
 
-export default config;
+export default config
